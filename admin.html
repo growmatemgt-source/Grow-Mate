@@ -16,20 +16,11 @@
 
   <style>
 
-    /* =========================================================
-       RESET
-    ========================================================= */
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
-
-    /* =========================================================
-       GROW MATE COLORS
-    ========================================================= */
 
     :root {
       --bg: #08090b;
@@ -51,11 +42,6 @@
 
       --max: 1180px;
     }
-
-
-    /* =========================================================
-       BODY
-    ========================================================= */
 
     body {
       font-family: "DM Sans", sans-serif;
@@ -80,31 +66,21 @@
       overflow-x: hidden;
     }
 
-
     button,
     input,
     select {
       font-family: inherit;
     }
 
-
-    /* =========================================================
-       DASHBOARD
-    ========================================================= */
-
     .dashboard {
       display: flex;
       min-height: 100vh;
     }
 
-
-    /* =========================================================
-       SIDEBAR
-    ========================================================= */
+    /* ================= SIDEBAR ================= */
 
     .sidebar {
       width: 250px;
-
       min-height: 100vh;
 
       background:
@@ -127,7 +103,6 @@
       z-index: 20;
     }
 
-
     .logo {
       display: inline-block;
 
@@ -148,11 +123,9 @@
       margin-bottom: 45px;
     }
 
-
     .logo span {
       color: var(--accent);
     }
-
 
     .side-label {
       color: #666a72;
@@ -167,7 +140,6 @@
 
       margin-bottom: 10px;
     }
-
 
     .side-link {
       width: 100%;
@@ -199,31 +171,23 @@
       transition: .2s ease;
     }
 
-
     .side-link:hover,
     .side-link.active {
       background: rgba(184,255,61,.08);
-
       color: white;
     }
-
 
     .side-link.active {
       box-shadow:
         inset 3px 0 0 var(--accent);
     }
 
-
     .side-icon {
       width: 20px;
-
       text-align: center;
-
       font-size: 16px;
-
       color: var(--accent);
     }
-
 
     .sidebar-bottom {
       position: absolute;
@@ -231,10 +195,8 @@
       bottom: 25px;
 
       left: 18px;
-
       right: 18px;
     }
-
 
     .site-link {
       color: var(--muted);
@@ -254,8 +216,17 @@
       text-align: center;
 
       transition: .2s;
+
+      background: transparent;
+
+      width: 100%;
+
+      cursor: pointer;
     }
 
+    .site-link + .site-link {
+      margin-top: 8px;
+    }
 
     .site-link:hover {
       color: white;
@@ -265,10 +236,7 @@
       background: rgba(184,255,61,.04);
     }
 
-
-    /* =========================================================
-       MAIN
-    ========================================================= */
+    /* ================= MAIN ================= */
 
     .main {
       width: calc(100% - 250px);
@@ -277,11 +245,6 @@
 
       padding: 38px 42px;
     }
-
-
-    /* =========================================================
-       TOP BAR
-    ========================================================= */
 
     .topbar {
       display: flex;
@@ -295,7 +258,6 @@
       margin-bottom: 35px;
     }
 
-
     .eyebrow {
       color: var(--accent);
 
@@ -308,7 +270,6 @@
       margin-bottom: 8px;
     }
 
-
     h1 {
       font-family: "Space Grotesk", sans-serif;
 
@@ -316,7 +277,6 @@
 
       letter-spacing: -1.5px;
     }
-
 
     .top-right {
       display: flex;
@@ -326,10 +286,7 @@
       gap: 12px;
     }
 
-
-    /* =========================================================
-       LIVE
-    ========================================================= */
+    /* ================= LIVE ================= */
 
     .live {
       display: flex;
@@ -353,7 +310,6 @@
       font-weight: 600;
     }
 
-
     .live-dot {
       width: 7px;
 
@@ -365,7 +321,6 @@
 
       box-shadow: 0 0 10px rgba(184,255,61,.8);
     }
-
 
     .refresh-btn {
       border: 1px solid var(--line);
@@ -383,17 +338,13 @@
       transition: .2s;
     }
 
-
     .refresh-btn:hover {
       border-color: rgba(184,255,61,.5);
 
       color: var(--accent);
     }
 
-
-    /* =========================================================
-       STATS
-    ========================================================= */
+    /* ================= STATS ================= */
 
     .stats {
       display: grid;
@@ -404,7 +355,6 @@
 
       margin-bottom: 28px;
     }
-
 
     .stat-card {
       background:
@@ -427,13 +377,11 @@
       transition: .25s;
     }
 
-
     .stat-card:hover {
       transform: translateY(-3px);
 
       border-color: rgba(184,255,61,.22);
     }
-
 
     .stat-card::after {
       content: "";
@@ -455,7 +403,6 @@
       filter: blur(5px);
     }
 
-
     .stat-label {
       color: var(--muted);
 
@@ -464,7 +411,6 @@
       margin-bottom: 13px;
     }
 
-
     .stat-number {
       font-family: "Space Grotesk", sans-serif;
 
@@ -472,7 +418,6 @@
 
       font-weight: 700;
     }
-
 
     .stat-icon {
       position: absolute;
@@ -486,12 +431,11 @@
       color: var(--accent);
     }
 
+    /* ================= PANELS ================= */
 
-    /* =========================================================
-       CONTENT PANEL
-    ========================================================= */
-
-    .content-panel {
+    .content-panel,
+    .activity-section,
+    .settings-section {
       background: rgba(16,18,22,.86);
 
       border: 1px solid var(--line);
@@ -503,6 +447,9 @@
       box-shadow: 0 25px 70px rgba(0,0,0,.20);
     }
 
+    .content-panel {
+      display: block;
+    }
 
     .panel-head {
       padding: 20px 22px;
@@ -518,24 +465,21 @@
       gap: 15px;
     }
 
-
-    .panel-head h2 {
+    .panel-head h2,
+    .activity-header h2,
+    .settings-header h2 {
       font-family: "Space Grotesk", sans-serif;
 
       font-size: 18px;
     }
 
-
-    /* =========================================================
-       FILTERS
-    ========================================================= */
+    /* ================= FILTERS ================= */
 
     .filters {
       display: flex;
 
       gap: 9px;
     }
-
 
     .search {
       background: #0b0d0f;
@@ -553,16 +497,13 @@
       outline: none;
     }
 
-
     .search::placeholder {
       color: #5f646d;
     }
 
-
     .search:focus {
       border-color: rgba(184,255,61,.5);
     }
-
 
     .filter {
       background: #0b0d0f;
@@ -580,11 +521,9 @@
       cursor: pointer;
     }
 
-
     .filter:focus {
       border-color: rgba(184,255,61,.5);
     }
-
 
     .filter option {
       background: #111318;
@@ -592,17 +531,13 @@
       color: white;
     }
 
-
-    /* =========================================================
-       TABLE
-    ========================================================= */
+    /* ================= TABLE ================= */
 
     .table-wrap {
       width: 100%;
 
       overflow-x: auto;
     }
-
 
     table {
       width: 100%;
@@ -611,7 +546,6 @@
 
       min-width: 900px;
     }
-
 
     th {
       color: #666a72;
@@ -631,7 +565,6 @@
       background: rgba(255,255,255,.015);
     }
 
-
     td {
       padding: 17px 20px;
 
@@ -644,11 +577,9 @@
       vertical-align: middle;
     }
 
-
     tr:hover td {
       background: rgba(184,255,61,.018);
     }
-
 
     .client-name {
       color: white;
@@ -658,18 +589,15 @@
       margin-bottom: 4px;
     }
 
-
     .client-email {
       color: #747a83;
 
       font-size: 11px;
     }
 
-
     .service {
       color: #c7ccd7;
     }
-
 
     .date {
       color: #858c94;
@@ -677,10 +605,7 @@
       font-size: 12px;
     }
 
-
-    /* =========================================================
-       STATUS
-    ========================================================= */
+    /* ================= STATUS ================= */
 
     .status-select {
       border-radius: 999px;
@@ -700,37 +625,29 @@
       outline: none;
     }
 
-
     .status-select.new {
       color: var(--accent);
 
       border-color: rgba(184,255,61,.25);
     }
 
-
     .status-select.contacted {
       color: #8ec8ff;
     }
-
 
     .status-select.progress {
       color: var(--yellow);
     }
 
-
     .status-select.completed {
       color: var(--green);
     }
-
 
     .status-select.cancelled {
       color: var(--red);
     }
 
-
-    /* =========================================================
-       ACTION BUTTONS
-    ========================================================= */
+    /* ================= ACTION ================= */
 
     .action-btn {
       display: inline-flex;
@@ -758,7 +675,6 @@
       transition: .2s;
     }
 
-
     .action-btn:hover {
       color: var(--accent);
 
@@ -767,10 +683,7 @@
       background: rgba(184,255,61,.04);
     }
 
-
-    /* =========================================================
-       LOADING
-    ========================================================= */
+    /* ================= LOADING ================= */
 
     .loading {
       padding: 55px;
@@ -779,7 +692,6 @@
 
       color: var(--muted);
     }
-
 
     .loading-dot {
       display: inline-block;
@@ -797,7 +709,6 @@
       animation: pulse 1s infinite;
     }
 
-
     @keyframes pulse {
 
       0% {
@@ -814,17 +725,13 @@
 
     }
 
-
-    /* =========================================================
-       ERROR
-    ========================================================= */
+    /* ================= ERROR ================= */
 
     .error-box {
       padding: 35px 25px;
 
       text-align: center;
     }
-
 
     .error-box strong {
       display: block;
@@ -836,7 +743,6 @@
       margin-bottom: 10px;
     }
 
-
     .error-box p {
       color: var(--muted);
 
@@ -844,7 +750,6 @@
 
       line-height: 1.7;
     }
-
 
     .error-box code {
       display: inline-block;
@@ -866,10 +771,7 @@
       overflow-wrap: anywhere;
     }
 
-
-    /* =========================================================
-       EMPTY
-    ========================================================= */
+    /* ================= EMPTY ================= */
 
     .empty {
       padding: 55px 20px;
@@ -881,7 +783,6 @@
       display: none;
     }
 
-
     .empty strong {
       display: block;
 
@@ -892,10 +793,196 @@
       margin-bottom: 7px;
     }
 
+    /* ================= ACTIVITY ================= */
 
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
+    .activity-section {
+      display: none;
+    }
+
+    .activity-header {
+      padding: 24px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .activity-header h2 {
+      font-size: 22px;
+
+      margin-top: 5px;
+    }
+
+    .activity-list {
+      padding: 10px 0;
+    }
+
+    .activity-item {
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 15px;
+
+      padding: 18px 24px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .activity-item:last-child {
+      border-bottom: 0;
+    }
+
+    .activity-icon {
+      width: 38px;
+
+      height: 38px;
+
+      flex-shrink: 0;
+
+      border-radius: 50%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: rgba(184,255,61,.10);
+
+      border: 1px solid rgba(184,255,61,.20);
+
+      color: var(--accent);
+
+      font-weight: 700;
+    }
+
+    .activity-content {
+      flex: 1;
+    }
+
+    .activity-title {
+      color: white;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      margin-bottom: 5px;
+    }
+
+    .activity-details {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.5;
+    }
+
+    .activity-time {
+      color: #666e7d;
+
+      font-size: 11px;
+
+      white-space: nowrap;
+    }
+
+    .activity-loading,
+    .activity-empty {
+      padding: 55px 20px;
+
+      text-align: center;
+
+      color: var(--muted);
+    }
+
+    /* ================= SETTINGS ================= */
+
+    .settings-section {
+      display: none;
+
+      padding: 0;
+    }
+
+    .settings-header {
+      padding: 24px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .settings-header h2 {
+      font-size: 22px;
+
+      margin-top: 5px;
+    }
+
+    .settings-content {
+      padding: 25px;
+    }
+
+    .setting-card {
+      background: rgba(255,255,255,.025);
+
+      border: 1px solid var(--line);
+
+      border-radius: 14px;
+
+      padding: 20px;
+
+      margin-bottom: 15px;
+    }
+
+    .setting-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .setting-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 15px;
+
+      margin-bottom: 8px;
+    }
+
+    .setting-card p {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.6;
+    }
+
+    .admin-email {
+      color: var(--accent);
+
+      word-break: break-all;
+    }
+
+    .setting-action {
+      margin-top: 15px;
+
+      border: 1px solid var(--line);
+
+      background: #101318;
+
+      color: white;
+
+      padding: 9px 13px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      font-size: 12px;
+
+      transition: .2s;
+    }
+
+    .setting-action:hover {
+      border-color: rgba(184,255,61,.4);
+
+      color: var(--accent);
+    }
+
+    /* ================= RESPONSIVE ================= */
 
     @media (max-width: 1050px) {
 
@@ -905,7 +992,6 @@
 
     }
 
-
     @media (max-width: 800px) {
 
       .sidebar {
@@ -913,7 +999,6 @@
 
         padding: 22px 9px;
       }
-
 
       .logo {
         font-size: 0;
@@ -925,7 +1010,6 @@
         width: 100%;
       }
 
-
       .logo::before {
         content: "GM";
 
@@ -934,13 +1018,11 @@
         color: var(--accent);
       }
 
-
       .side-label,
       .side-link span:not(.side-icon),
       .site-link {
         display: none;
       }
-
 
       .side-link {
         justify-content: center;
@@ -948,13 +1030,11 @@
         padding: 13px 5px;
       }
 
-
       .sidebar-bottom {
         left: 9px;
 
         right: 9px;
       }
-
 
       .main {
         width: calc(100% - 70px);
@@ -964,26 +1044,21 @@
         padding: 25px 18px;
       }
 
-
       .topbar {
         align-items: flex-start;
       }
-
 
       h1 {
         font-size: 27px;
       }
 
-
       .filters {
         flex-direction: column;
       }
 
-
       .search {
         width: 100%;
       }
-
 
       .panel-head {
         align-items: stretch;
@@ -991,8 +1066,15 @@
         flex-direction: column;
       }
 
-    }
+      .activity-item {
+        flex-wrap: wrap;
+      }
 
+      .activity-time {
+        margin-left: 53px;
+      }
+
+    }
 
     @media (max-width: 520px) {
 
@@ -1002,109 +1084,28 @@
         gap: 10px;
       }
 
-
       .stat-card {
         padding: 15px;
       }
-
 
       .stat-number {
         font-size: 24px;
       }
 
-
       .stat-icon {
         display: none;
       }
-
 
       .top-right {
         display: none;
       }
 
+      .settings-content {
+        padding: 15px;
+      }
+
     }
-/* ================================
-   ACTIVITY SECTION
-================================ */
 
-.activity-section {
-  display: none;
-  background: rgba(16,18,25,.82);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-.activity-header {
-  padding: 24px;
-  border-bottom: 1px solid var(--border);
-}
-
-.activity-header h2 {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 22px;
-  margin-top: 5px;
-}
-
-.activity-list {
-  padding: 10px 0;
-}
-
-.activity-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  padding: 18px 24px;
-  border-bottom: 1px solid var(--border);
-}
-
-.activity-item:last-child {
-  border-bottom: 0;
-}
-
-.activity-icon {
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(184,255,61,.10);
-  border: 1px solid rgba(184,255,61,.20);
-  color: var(--accent);
-  font-weight: 700;
-}
-
-.activity-content {
-  flex: 1;
-}
-
-.activity-title {
-  color: white;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.activity-details {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.activity-time {
-  color: #666e7d;
-  font-size: 11px;
-  white-space: nowrap;
-}
-
-.activity-loading,
-.activity-empty {
-  padding: 55px 20px;
-  text-align: center;
-  color: var(--muted);
-}
   </style>
 </head>
 
@@ -1113,10 +1114,7 @@
 
   <div class="dashboard">
 
-
-    <!-- =======================================================
-         SIDEBAR
-    ======================================================== -->
+    <!-- ================= SIDEBAR ================= -->
 
     <aside class="sidebar">
 
@@ -1124,8 +1122,7 @@
         GROW<span>MATE</span>
       </a>
 
-
-           <div class="side-label">
+      <div class="side-label">
         MANAGEMENT
       </div>
 
@@ -1139,20 +1136,18 @@
         <span>Activity</span>
       </button>
 
-      <button class="side-link">
+      <button class="side-link" id="settingsBtn">
         <span class="side-icon">⚙</span>
         <span>Settings</span>
       </button>
 
-
       <div class="sidebar-bottom">
-<button class="site-link" id="logoutBtn">
-  Logout
-</button>
-        <a
-          href="index.html"
-          class="site-link"
-        >
+
+        <button class="site-link" id="logoutBtn">
+          Logout
+        </button>
+
+        <a href="index.html" class="site-link">
           ← Back to Website
         </a>
 
@@ -1161,13 +1156,9 @@
     </aside>
 
 
-
-    <!-- =======================================================
-         MAIN
-    ======================================================== -->
+    <!-- ================= MAIN ================= -->
 
     <main class="main">
-
 
       <!-- TOP BAR -->
 
@@ -1175,16 +1166,15 @@
 
         <div>
 
-          <div class="eyebrow">
+          <div class="eyebrow" id="pageEyebrow">
             GROW MATE / ADMIN
           </div>
 
-          <h1>
+          <h1 id="pageTitle">
             Lead Dashboard
           </h1>
 
         </div>
-
 
         <div class="top-right">
 
@@ -1195,7 +1185,6 @@
             LIVE
 
           </div>
-
 
           <button
             class="refresh-btn"
@@ -1209,13 +1198,9 @@
       </div>
 
 
+      <!-- ================= STATS ================= -->
 
-      <!-- =====================================================
-           STATS
-      ====================================================== -->
-
-      <section class="stats">
-
+      <section class="stats" id="statsSection">
 
         <div class="stat-card">
 
@@ -1235,7 +1220,6 @@
           </div>
 
         </div>
-
 
 
         <div class="stat-card">
@@ -1258,7 +1242,6 @@
         </div>
 
 
-
         <div class="stat-card">
 
           <div class="stat-label">
@@ -1277,7 +1260,6 @@
           </div>
 
         </div>
-
 
 
         <div class="stat-card">
@@ -1299,28 +1281,20 @@
 
         </div>
 
-
       </section>
 
 
+      <!-- ================= LEADS PANEL ================= -->
 
-      <!-- =====================================================
-           LEADS PANEL
-      ====================================================== -->
-
-      <section class="content-panel">
-
+      <section class="content-panel" id="leadsSection">
 
         <div class="panel-head">
-
 
           <h2>
             Recent Leads
           </h2>
 
-
           <div class="filters">
-
 
             <input
               type="search"
@@ -1328,7 +1302,6 @@
               class="search"
               placeholder="Search leads..."
             >
-
 
             <select
               id="statusFilter"
@@ -1361,59 +1334,38 @@
 
             </select>
 
-
           </div>
-
 
         </div>
 
 
-
         <div class="table-wrap">
 
-
           <table>
-
 
             <thead>
 
               <tr>
 
-                <th>
-                  CLIENT
-                </th>
+                <th>CLIENT</th>
 
-                <th>
-                  PHONE
-                </th>
+                <th>PHONE</th>
 
-                <th>
-                  SERVICE
-                </th>
+                <th>SERVICE</th>
 
-                <th>
-                  MESSAGE
-                </th>
+                <th>MESSAGE</th>
 
-                <th>
-                  DATE
-                </th>
+                <th>DATE</th>
 
-                <th>
-                  STATUS
-                </th>
+                <th>STATUS</th>
 
-                <th>
-                  ACTION
-                </th>
+                <th>ACTION</th>
 
               </tr>
 
             </thead>
 
-
             <tbody id="leadsBody">
-
 
               <tr>
 
@@ -1430,15 +1382,11 @@
 
               </tr>
 
-
             </tbody>
-
 
           </table>
 
-
         </div>
-
 
 
         <div
@@ -1454,50 +1402,140 @@
 
         </div>
 
+      </section>
+
+
+      <!-- ================= ACTIVITY ================= -->
+
+      <section
+        class="activity-section"
+        id="activitySection"
+      >
+
+        <div class="activity-header">
+
+          <div class="eyebrow">
+            GROW MATE / ACTIVITY
+          </div>
+
+          <h2>
+            Recent Activity
+          </h2>
+
+        </div>
+
+        <div
+          class="activity-list"
+          id="activityList"
+        >
+
+          <div class="activity-loading">
+            Loading activity...
+          </div>
+
+        </div>
 
       </section>
 
-<!-- ACTIVITY SECTION -->
 
-<section class="activity-section" id="activitySection">
+      <!-- ================= SETTINGS ================= -->
 
-  <div class="activity-header">
-    <div>
-      <div class="eyebrow">GROW MATE / ACTIVITY</div>
-      <h2>Recent Activity</h2>
-    </div>
-  </div>
+      <section
+        class="settings-section"
+        id="settingsSection"
+      >
 
-  <div class="activity-list" id="activityList">
+        <div class="settings-header">
 
-    <div class="activity-loading">
-      Loading activity...
-    </div>
+          <div class="eyebrow">
+            GROW MATE / SETTINGS
+          </div>
 
-  </div>
+          <h2>
+            Dashboard Settings
+          </h2>
 
-</section>
+        </div>
+
+        <div class="settings-content">
+
+          <div class="setting-card">
+
+            <h3>
+              Admin Account
+            </h3>
+
+            <p>
+              Currently signed in as:
+            </p>
+
+            <p
+              class="admin-email"
+              id="adminEmail"
+            >
+              Loading...
+            </p>
+
+          </div>
+
+
+          <div class="setting-card">
+
+            <h3>
+              Dashboard Data
+            </h3>
+
+            <p>
+              Refresh the dashboard to fetch the latest leads
+              directly from Supabase.
+            </p>
+
+            <button
+              class="setting-action"
+              id="settingsRefreshBtn"
+            >
+              ↻ Refresh Leads
+            </button>
+
+          </div>
+
+
+          <div class="setting-card">
+
+            <h3>
+              Security
+            </h3>
+
+            <p>
+              Your admin dashboard is protected by Supabase
+              authentication. Logging out will end your current
+              admin session.
+            </p>
+
+            <button
+              class="setting-action"
+              id="settingsLogoutBtn"
+            >
+              Logout
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
     </main>
 
-
   </div>
 
 
-
-  <!-- =========================================================
-       SUPABASE LIBRARY
-  ========================================================== -->
+  <!-- ================= SUPABASE ================= -->
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
-
   <script>
-
-    /* =========================================================
-       GROW MATE ADMIN DASHBOARD
-    ========================================================= */
-
 
     /* =========================================================
        SUPABASE CONFIG
@@ -1506,41 +1544,14 @@
     const SUPABASE_URL =
       "https://ftukdnfklkhpmlvdfphj.supabase.co";
 
-
-    /*
-      IMPORTANT:
-
-      Sirf PUBLISHABLE key use karni hai.
-
-      Secret / service_role key yahan KABHI mat lagana.
-    */
-
     const SUPABASE_KEY =
       "sb_publishable_Tm7yIAQyPuN35j7za2i9AQ_FHDASoDw";
-
 
     const supabaseClient =
       window.supabase.createClient(
         SUPABASE_URL,
         SUPABASE_KEY
       );
-// ---------- LOGIN PROTECTION ----------
-
-async function checkAdminLogin() {
-
-  const {
-    data: { session }
-  } = await supabaseClient.auth.getSession();
-
-  if (!session) {
-    window.location.href = "login.html";
-    return false;
-  }
-
-  return true;
-}
-
-checkAdminLogin();
 
 
     /* =========================================================
@@ -1549,6 +1560,7 @@ checkAdminLogin();
 
     let allLeads = [];
 
+    let currentSession = null;
 
 
     /* =========================================================
@@ -1558,22 +1570,95 @@ checkAdminLogin();
     const leadsBody =
       document.getElementById("leadsBody");
 
-
     const emptyState =
       document.getElementById("emptyState");
-
 
     const searchInput =
       document.getElementById("searchInput");
 
-
     const statusFilter =
       document.getElementById("statusFilter");
-
 
     const refreshBtn =
       document.getElementById("refreshBtn");
 
+    const leadsBtn =
+      document.getElementById("leadsBtn");
+
+    const activityBtn =
+      document.getElementById("activityBtn");
+
+    const settingsBtn =
+      document.getElementById("settingsBtn");
+
+    const leadsSection =
+      document.getElementById("leadsSection");
+
+    const activitySection =
+      document.getElementById("activitySection");
+
+    const settingsSection =
+      document.getElementById("settingsSection");
+
+    const statsSection =
+      document.getElementById("statsSection");
+
+    const pageTitle =
+      document.getElementById("pageTitle");
+
+    const pageEyebrow =
+      document.getElementById("pageEyebrow");
+
+    const activityList =
+      document.getElementById("activityList");
+
+    const adminEmail =
+      document.getElementById("adminEmail");
+
+
+    /* =========================================================
+       LOGIN PROTECTION
+    ========================================================= */
+
+    async function checkAdminLogin() {
+
+      const {
+        data: {
+          session
+        }
+      } =
+        await supabaseClient.auth.getSession();
+
+
+      if (!session) {
+
+        window.location.href =
+          "login.html";
+
+        return false;
+
+      }
+
+
+      currentSession =
+        session;
+
+
+      if (
+        adminEmail &&
+        session.user
+      ) {
+
+        adminEmail.textContent =
+          session.user.email ||
+          "Admin";
+
+      }
+
+
+      return true;
+
+    }
 
 
     /* =========================================================
@@ -1581,7 +1666,6 @@ checkAdminLogin();
     ========================================================= */
 
     async function loadLeads() {
-
 
       leadsBody.innerHTML = `
 
@@ -1603,12 +1687,11 @@ checkAdminLogin();
       `;
 
 
-      emptyState.style.display = "none";
-
+      emptyState.style.display =
+        "none";
 
 
       try {
-
 
         const result =
           await supabaseClient
@@ -1625,18 +1708,13 @@ checkAdminLogin();
         const data =
           result.data;
 
-
         const error =
           result.error;
 
 
-
-        /* ================================================
-           ERROR
-        ================================================= */
+        /* ERROR */
 
         if (error) {
-
 
           console.error(
             "Supabase error:",
@@ -1662,7 +1740,10 @@ checkAdminLogin();
                   </p>
 
                   <code>
-                    ${escapeHTML(error.message || "Unknown error")}
+                    ${escapeHTML(
+                      error.message ||
+                      "Unknown error"
+                    )}
                   </code>
 
                 </div>
@@ -1674,15 +1755,21 @@ checkAdminLogin();
           `;
 
 
+          activityList.innerHTML = `
+
+            <div class="activity-empty">
+              Activity could not be loaded.
+            </div>
+
+          `;
+
+
           return;
 
         }
 
 
-
-        /* ================================================
-           SUCCESS
-        ================================================= */
+        /* SUCCESS */
 
         allLeads =
           data || [];
@@ -1690,14 +1777,13 @@ checkAdminLogin();
 
         updateStats();
 
-
         renderLeads();
 
+        loadActivity();
 
       }
 
       catch (err) {
-
 
         console.error(
           "Unexpected error:",
@@ -1722,7 +1808,10 @@ checkAdminLogin();
                 </p>
 
                 <code>
-                  ${escapeHTML(err.message || String(err))}
+                  ${escapeHTML(
+                    err.message ||
+                    String(err)
+                  )}
                 </code>
 
               </div>
@@ -1738,17 +1827,14 @@ checkAdminLogin();
     }
 
 
-
     /* =========================================================
        UPDATE STATS
     ========================================================= */
 
     function updateStats() {
 
-
       const total =
         allLeads.length;
-
 
 
       const newCount =
@@ -1758,13 +1844,11 @@ checkAdminLogin();
         ).length;
 
 
-
       const progressCount =
         allLeads.filter(
           lead =>
             lead.status === "In Progress"
         ).length;
-
 
 
       const completedCount =
@@ -1774,12 +1858,10 @@ checkAdminLogin();
         ).length;
 
 
-
       document
         .getElementById("totalLeads")
         .textContent =
           total;
-
 
 
       document
@@ -1788,12 +1870,10 @@ checkAdminLogin();
           newCount;
 
 
-
       document
         .getElementById("progressLeads")
         .textContent =
           progressCount;
-
 
 
       document
@@ -1804,13 +1884,11 @@ checkAdminLogin();
     }
 
 
-
     /* =========================================================
        RENDER LEADS
     ========================================================= */
 
     function renderLeads() {
-
 
       const search =
         searchInput.value
@@ -1822,11 +1900,9 @@ checkAdminLogin();
         statusFilter.value;
 
 
-
       const filtered =
         allLeads.filter(
           lead => {
-
 
             const matchesSearch =
 
@@ -1863,13 +1939,11 @@ checkAdminLogin();
               .includes(search);
 
 
-
             const matchesStatus =
 
               filter === "all" ||
 
               lead.status === filter;
-
 
 
             return (
@@ -1881,20 +1955,14 @@ checkAdminLogin();
         );
 
 
-
-      /* ================================================
-         EMPTY
-      ================================================= */
+      /* EMPTY */
 
       if (!filtered.length) {
 
-
         leadsBody.innerHTML = "";
-
 
         emptyState.style.display =
           "block";
-
 
         return;
 
@@ -1905,17 +1973,13 @@ checkAdminLogin();
         "none";
 
 
-
-      /* ================================================
-         TABLE
-      ================================================= */
+      /* TABLE */
 
       leadsBody.innerHTML =
 
         filtered
           .map(
             lead => {
-
 
               const date =
 
@@ -1928,10 +1992,8 @@ checkAdminLogin();
                   : "—";
 
 
-
               const phone =
                 lead.phone || "—";
-
 
 
               const whatsappNumber =
@@ -1939,7 +2001,6 @@ checkAdminLogin();
                   /\D/g,
                   ""
                 );
-
 
 
               const whatsappLink =
@@ -1950,59 +2011,57 @@ checkAdminLogin();
                   : "#";
 
 
-
               const status =
                 lead.status || "New";
-
 
 
               let statusClass =
                 "new";
 
 
-
               if (
                 status === "Contacted"
               ) {
+
                 statusClass =
                   "contacted";
-              }
 
+              }
 
 
               if (
                 status === "In Progress"
               ) {
+
                 statusClass =
                   "progress";
-              }
 
+              }
 
 
               if (
                 status === "Completed"
               ) {
+
                 statusClass =
                   "completed";
-              }
 
+              }
 
 
               if (
                 status === "Cancelled"
               ) {
+
                 statusClass =
                   "cancelled";
-              }
 
+              }
 
 
               return `
 
                 <tr>
-
-
-                  <!-- CLIENT -->
 
                   <td>
 
@@ -2014,7 +2073,6 @@ checkAdminLogin();
                       )}
 
                     </div>
-
 
                     <div class="client-email">
 
@@ -2028,9 +2086,6 @@ checkAdminLogin();
                   </td>
 
 
-
-                  <!-- PHONE -->
-
                   <td>
 
                     ${escapeHTML(
@@ -2039,9 +2094,6 @@ checkAdminLogin();
 
                   </td>
 
-
-
-                  <!-- SERVICE -->
 
                   <td class="service">
 
@@ -2053,9 +2105,6 @@ checkAdminLogin();
                   </td>
 
 
-
-                  <!-- MESSAGE -->
-
                   <td>
 
                     ${escapeHTML(
@@ -2066,9 +2115,6 @@ checkAdminLogin();
                   </td>
 
 
-
-                  <!-- DATE -->
-
                   <td class="date">
 
                     ${escapeHTML(
@@ -2078,11 +2124,7 @@ checkAdminLogin();
                   </td>
 
 
-
-                  <!-- STATUS -->
-
                   <td>
-
 
                     <select
 
@@ -2096,7 +2138,6 @@ checkAdminLogin();
                       )}"
 
                     >
-
 
                       <option
                         value="New"
@@ -2157,18 +2198,12 @@ checkAdminLogin();
                         Cancelled
                       </option>
 
-
                     </select>
-
 
                   </td>
 
 
-
-                  <!-- ACTION -->
-
                   <td>
-
 
                     ${
                       whatsappNumber
@@ -2197,7 +2232,6 @@ checkAdminLogin();
                     }
 
 
-
                     ${
                       lead.email
 
@@ -2222,9 +2256,7 @@ checkAdminLogin();
                         : ""
                     }
 
-
                   </td>
-
 
                 </tr>
 
@@ -2235,10 +2267,7 @@ checkAdminLogin();
           .join("");
 
 
-
-      /* ================================================
-         STATUS EVENTS
-      ================================================= */
+      /* STATUS EVENTS */
 
       document
         .querySelectorAll(
@@ -2247,17 +2276,14 @@ checkAdminLogin();
         .forEach(
           select => {
 
-
             select.addEventListener(
               "change",
               async function() {
-
 
                 await updateStatus(
                   this.dataset.id,
                   this.value
                 );
-
 
               }
             );
@@ -2266,7 +2292,6 @@ checkAdminLogin();
         );
 
     }
-
 
 
     /* =========================================================
@@ -2278,11 +2303,9 @@ checkAdminLogin();
       status
     ) {
 
-
       const {
         error
       } =
-
         await supabaseClient
 
           .from("leads")
@@ -2297,9 +2320,7 @@ checkAdminLogin();
           );
 
 
-
       if (error) {
-
 
         console.error(
           "Status update error:",
@@ -2318,14 +2339,12 @@ checkAdminLogin();
       }
 
 
-
       const lead =
         allLeads.find(
           item =>
             String(item.id) ===
             String(id)
         );
-
 
 
       if (lead) {
@@ -2336,14 +2355,208 @@ checkAdminLogin();
       }
 
 
-
       updateStats();
-
 
       renderLeads();
 
+      loadActivity();
+
     }
 
+
+    /* =========================================================
+       ACTIVITY
+    ========================================================= */
+
+    function loadActivity() {
+
+      if (!activityList) return;
+
+
+      if (!allLeads.length) {
+
+        activityList.innerHTML = `
+
+          <div class="activity-empty">
+            No activity yet.
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      activityList.innerHTML =
+
+        allLeads
+          .slice(0, 10)
+          .map(
+            lead => {
+
+              const date =
+                lead.created_at
+                  ? new Date(
+                      lead.created_at
+                    )
+                  : new Date();
+
+
+              return `
+
+                <div class="activity-item">
+
+                  <div class="activity-icon">
+                    ✦
+                  </div>
+
+
+                  <div class="activity-content">
+
+                    <div class="activity-title">
+                      New lead received
+                    </div>
+
+
+                    <div class="activity-details">
+
+                      ${escapeHTML(
+                        lead.name ||
+                        "Unknown"
+                      )}
+
+                      submitted a
+
+                      ${escapeHTML(
+                        lead.service ||
+                        "project"
+                      )}
+
+                      request.
+
+                    </div>
+
+                  </div>
+
+
+                  <div class="activity-time">
+
+                    ${escapeHTML(
+                      date.toLocaleString()
+                    )}
+
+                  </div>
+
+                </div>
+
+              `;
+
+            }
+          )
+          .join("");
+
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    function showPage(page) {
+
+      leadsSection.style.display =
+        "none";
+
+      activitySection.style.display =
+        "none";
+
+      settingsSection.style.display =
+        "none";
+
+
+      leadsBtn.classList.remove(
+        "active"
+      );
+
+      activityBtn.classList.remove(
+        "active"
+      );
+
+      settingsBtn.classList.remove(
+        "active"
+      );
+
+
+      if (page === "leads") {
+
+        leadsSection.style.display =
+          "block";
+
+        statsSection.style.display =
+          "grid";
+
+        leadsBtn.classList.add(
+          "active"
+        );
+
+        pageEyebrow.textContent =
+          "GROW MATE / ADMIN";
+
+        pageTitle.textContent =
+          "Lead Dashboard";
+
+        return;
+
+      }
+
+
+      if (page === "activity") {
+
+        activitySection.style.display =
+          "block";
+
+        statsSection.style.display =
+          "none";
+
+        activityBtn.classList.add(
+          "active"
+        );
+
+        pageEyebrow.textContent =
+          "GROW MATE / ACTIVITY";
+
+        pageTitle.textContent =
+          "Recent Activity";
+
+        loadActivity();
+
+        return;
+
+      }
+
+
+      if (page === "settings") {
+
+        settingsSection.style.display =
+          "block";
+
+        statsSection.style.display =
+          "none";
+
+        settingsBtn.classList.add(
+          "active"
+        );
+
+        pageEyebrow.textContent =
+          "GROW MATE / SETTINGS";
+
+        pageTitle.textContent =
+          "Dashboard Settings";
+
+      }
+
+    }
 
 
     /* =========================================================
@@ -2356,7 +2569,6 @@ checkAdminLogin();
     );
 
 
-
     /* =========================================================
        STATUS FILTER
     ========================================================= */
@@ -2365,7 +2577,6 @@ checkAdminLogin();
       "change",
       renderLeads
     );
-
 
 
     /* =========================================================
@@ -2378,14 +2589,45 @@ checkAdminLogin();
     );
 
 
+    /* =========================================================
+       NAVIGATION BUTTONS
+    ========================================================= */
+
+    leadsBtn.addEventListener(
+      "click",
+      () => {
+
+        showPage("leads");
+
+      }
+    );
+
+
+    activityBtn.addEventListener(
+      "click",
+      () => {
+
+        showPage("activity");
+
+      }
+    );
+
+
+    settingsBtn.addEventListener(
+      "click",
+      () => {
+
+        showPage("settings");
+
+      }
+    );
+
 
     /* =========================================================
        SECURITY HELPER
     ========================================================= */
 
-    function escapeHTML(
-      value
-    ) {
+    function escapeHTML(value) {
 
       return String(value)
 
@@ -2417,100 +2659,103 @@ checkAdminLogin();
     }
 
 
-// ---------- LOGOUT ----------
+    /* =========================================================
+       LOGOUT
+    ========================================================= */
 
-document
-  .getElementById("logoutBtn")
-  .addEventListener("click", async () => {
+    async function logoutAdmin() {
 
-    const { error } = await supabaseClient.auth.signOut();
+      const {
+        error
+      } =
+        await supabaseClient.auth.signOut();
 
-    if (error) {
-      console.error("Logout error:", error);
-      alert("Logout failed.");
-      return;
+
+      if (error) {
+
+        console.error(
+          "Logout error:",
+          error
+        );
+
+
+        alert(
+          "Logout failed."
+        );
+
+
+        return;
+
+      }
+
+
+      window.location.href =
+        "login.html";
+
     }
 
-    window.location.href = "login.html";
-  });
+
+    document
+      .getElementById("logoutBtn")
+      .addEventListener(
+        "click",
+        logoutAdmin
+      );
+
+
+    document
+      .getElementById("settingsLogoutBtn")
+      .addEventListener(
+        "click",
+        logoutAdmin
+      );
+
+
+    /* =========================================================
+       SETTINGS REFRESH
+    ========================================================= */
+
+    document
+      .getElementById(
+        "settingsRefreshBtn"
+      )
+      .addEventListener(
+        "click",
+        async () => {
+
+          await loadLeads();
+
+          alert(
+            "Leads refreshed successfully."
+          );
+
+        }
+      );
+
+
     /* =========================================================
        START DASHBOARD
     ========================================================= */
 
-loadLeads();
-// ---------- ACTIVITY ----------
+    async function initDashboard() {
 
-function loadActivity() {
+      const loggedIn =
+        await checkAdminLogin();
 
-  const activityList =
-    document.getElementById("activityList");
 
-  if (!activityList) return;
+      if (!loggedIn) {
+        return;
+      }
 
-  if (!allLeads.length) {
 
-    activityList.innerHTML = `
-      <div class="activity-empty">
-        No activity yet.
-      </div>
-    `;
+      await loadLeads();
 
-    return;
-  }
+    }
 
-  activityList.innerHTML = allLeads
-    .slice(0, 10)
-    .map(lead => {
 
-      const date = lead.created_at
-        ? new Date(lead.created_at)
-        : new Date();
+    initDashboard();
 
-      return `
-        <div class="activity-item">
-
-          <div class="activity-icon">
-            ✦
-          </div>
-
-          <div class="activity-content">
-
-            <div class="activity-title">
-              New lead received
-            </div>
-
-            <div class="activity-details">
-              ${escapeHTML(lead.name || "Unknown")}
-              submitted a
-              ${escapeHTML(lead.service || "project")}
-              request.
-            </div>
-
-          </div>
-
-          <div class="activity-time">
-            ${date.toLocaleString()}
-          </div>
-
-        </div>
-      `;
-
-    })
-    .join("");
-}
-// ---------- ACTIVITY BUTTON ----------
-
-const activityBtn = document.getElementById("activityBtn");
-
-if (activityBtn) {
-  activityBtn.addEventListener("click", () => {
-    alert(
-      "Activity section is coming next.\n\nRecent lead activity will appear here."
-    );
-  });
-}
-
-</script>
+  </script>
 
 </body>
 </html>
