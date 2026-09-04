@@ -1434,7 +1434,23 @@
         SUPABASE_URL,
         SUPABASE_KEY
       );
+// ---------- LOGIN PROTECTION ----------
 
+async function checkAdminLogin() {
+
+  const {
+    data: { session }
+  } = await supabaseClient.auth.getSession();
+
+  if (!session) {
+    window.location.href = "login.html";
+    return false;
+  }
+
+  return true;
+}
+
+checkAdminLogin();
 
 
     /* =========================================================
