@@ -2347,7 +2347,17 @@ document
     ========================================================= */
 
     loadLeads();
+// ---------- ACTIVITY BUTTON ----------
 
+const activityBtn = document.getElementById("activityBtn");
+
+if (activityBtn) {
+  activityBtn.addEventListener("click", () => {
+    alert(
+      "Activity section is coming next.\n\nRecent lead activity will appear here."
+    );
+  });
+}
   </script>
 
 </body>
