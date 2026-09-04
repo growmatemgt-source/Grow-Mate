@@ -2329,7 +2329,22 @@ checkAdminLogin();
     }
 
 
+// ---------- LOGOUT ----------
 
+document
+  .getElementById("logoutBtn")
+  .addEventListener("click", async () => {
+
+    const { error } = await supabaseClient.auth.signOut();
+
+    if (error) {
+      console.error("Logout error:", error);
+      alert("Logout failed.");
+      return;
+    }
+
+    window.location.href = "login.html";
+  });
     /* =========================================================
        START DASHBOARD
     ========================================================= */
