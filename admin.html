@@ -2438,7 +2438,66 @@ document
     ========================================================= */
 
 loadLeads();
+// ---------- ACTIVITY ----------
 
+function loadActivity() {
+
+  const activityList =
+    document.getElementById("activityList");
+
+  if (!activityList) return;
+
+  if (!allLeads.length) {
+
+    activityList.innerHTML = `
+      <div class="activity-empty">
+        No activity yet.
+      </div>
+    `;
+
+    return;
+  }
+
+  activityList.innerHTML = allLeads
+    .slice(0, 10)
+    .map(lead => {
+
+      const date = lead.created_at
+        ? new Date(lead.created_at)
+        : new Date();
+
+      return `
+        <div class="activity-item">
+
+          <div class="activity-icon">
+            ✦
+          </div>
+
+          <div class="activity-content">
+
+            <div class="activity-title">
+              New lead received
+            </div>
+
+            <div class="activity-details">
+              ${escapeHTML(lead.name || "Unknown")}
+              submitted a
+              ${escapeHTML(lead.service || "project")}
+              request.
+            </div>
+
+          </div>
+
+          <div class="activity-time">
+            ${date.toLocaleString()}
+          </div>
+
+        </div>
+      `;
+
+    })
+    .join("");
+}
 // ---------- ACTIVITY BUTTON ----------
 
 const activityBtn = document.getElementById("activityBtn");
