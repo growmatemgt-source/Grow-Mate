@@ -1,23 +1,366 @@
-DOCTYPE html>
-<htm<!l lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Grow Mate — Creative Digital Studio</title>
-  <meta name="description" content="Grow Mate helps brands grow with premium design and digital solutions.">
+
+  <meta
+    name="description"
+    content="Grow Mate creates premium brand identities, graphic designs and modern websites for ambitious businesses."
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- PORTFOLIO UPDATE STYLES -->
+  <style>
+
+    /* ================================
+       PORTFOLIO
+    ================================= */
+
+    .portfolio-intro {
+      max-width: 650px;
+      color: var(--muted, #92959e);
+      margin-top: 18px;
+      line-height: 1.7;
+    }
+
+    .portfolio-category {
+      margin-top: 70px;
+    }
+
+    .portfolio-category:first-child {
+      margin-top: 40px;
+    }
+
+    .portfolio-category-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+      margin-bottom: 25px;
+    }
+
+    .portfolio-category-head h3 {
+      margin: 8px 0 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(25px, 3vw, 38px);
+      line-height: 1.1;
+    }
+
+    .portfolio-category-head p {
+      max-width: 500px;
+      margin: 0;
+      color: var(--muted, #92959e);
+      line-height: 1.7;
+    }
+
+    .portfolio-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid rgba(184,255,61,.18);
+      background: rgba(184,255,61,.05);
+      color: #b8ff3d;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .portfolio-grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .portfolio-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line, rgba(255,255,255,.08));
+      border-radius: 20px;
+      background: #101216;
+      transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(184,255,61,.35);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+
+    .portfolio-image {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #0c0d10;
+    }
+
+    .portfolio-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .portfolio-card:hover .portfolio-image img {
+      transform: scale(1.04);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 16px;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.45),
+        transparent 45%
+      );
+      pointer-events: none;
+    }
+
+    .demo-badge {
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(8,9,11,.8);
+      border: 1px solid rgba(255,255,255,.12);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+
+    .portfolio-arrow {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #b8ff3d;
+      color: #08090b;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .portfolio-info {
+      padding: 20px 20px 22px;
+    }
+
+    .portfolio-info h4 {
+      margin: 0 0 7px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 21px;
+      color: #f5f5f2;
+    }
+
+    .portfolio-info p {
+      margin: 0;
+      color: #92959e;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .portfolio-link {
+      display: inline-flex;
+      margin-top: 15px;
+      color: #b8ff3d;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ================================
+       BRAND IDENTITY VISUALS
+    ================================= */
+
+    .brand-visual {
+      aspect-ratio: 16 / 10;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 75% 25%, rgba(0,153,255,.20), transparent 35%),
+        linear-gradient(135deg, #07080a, #12151b);
+    }
+
+    .brand-logo-box {
+      width: 115px;
+      height: 115px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      background: #0b0d10;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 25px 70px rgba(0,0,0,.45);
+      padding: 18px;
+    }
+
+    .brand-logo-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-word {
+      position: absolute;
+      bottom: 24px;
+      left: 26px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -.04em;
+      color: #f5f5f2;
+    }
+
+    .brand-word span {
+      color: #0099ff;
+    }
+
+    .brand-system {
+      aspect-ratio: 16 / 10;
+      position: relative;
+      overflow: hidden;
+      padding: 25px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0,153,255,.15), transparent 30%),
+        #08090b;
+    }
+
+    .system-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 27px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .system-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .system-color {
+      flex: 1;
+      height: 55px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      align-items: flex-end;
+      padding: 8px;
+      font-size: 10px;
+      color: rgba(255,255,255,.65);
+    }
+
+    .system-blue {
+      background: #0099ff;
+      color: #06111a;
+    }
+
+    .system-dark {
+      background: #08090b;
+    }
+
+    .system-gray {
+      background: #6f737c;
+    }
+
+    .system-white {
+      background: #f5f5f2;
+      color: #111;
+    }
+
+    .system-type {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+      color: #92959e;
+    }
+
+    .brand-card {
+      cursor: default;
+    }
+
+    /* ================================
+       RESPONSIVE
+    ================================= */
+
+    @media (max-width: 900px) {
+
+      .portfolio-grid,
+      .portfolio-grid.three {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-category-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .portfolio-category {
+        margin-top: 50px;
+      }
+
+      .portfolio-info {
+        padding: 17px;
+      }
+
+      .portfolio-info h4 {
+        font-size: 19px;
+      }
+
+      .brand-logo-box {
+        width: 90px;
+        height: 90px;
+      }
+
+      .brand-word {
+        font-size: 24px;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- =========================================
+       NAVBAR
+  ========================================== -->
+
   <header class="navbar">
+
     <div class="nav-container">
 
       <a href="#home" class="logo">
@@ -35,16 +378,21 @@ DOCTYPE html>
       <a
         href="https://wa.me/923393125143"
         target="_blank"
+        rel="noopener"
         class="nav-btn"
       >
         Let's Talk
       </a>
 
     </div>
+
   </header>
 
 
-  <!-- HERO -->
+  <!-- =========================================
+       HERO
+  ========================================== -->
+
   <main>
 
     <section class="hero" id="home">
@@ -80,6 +428,7 @@ DOCTYPE html>
         </div>
 
         <div class="hero-stats">
+
           <div>
             <strong>50+</strong>
             <span>Projects</span>
@@ -94,6 +443,7 @@ DOCTYPE html>
             <strong>100%</strong>
             <span>Creative</span>
           </div>
+
         </div>
 
       </div>
@@ -124,57 +474,92 @@ DOCTYPE html>
     </section>
 
 
-    <!-- SERVICES -->
+    <!-- =========================================
+         SERVICES
+    ========================================== -->
+
     <section class="section" id="services">
 
       <div class="section-heading">
+
         <div>
+
           <span class="eyebrow">WHAT WE DO</span>
-          <h2>Creative solutions<br>built to <em>grow.</em></h2>
+
+          <h2>
+            Creative solutions<br>
+            built to <em>grow.</em>
+          </h2>
+
         </div>
 
         <p>
           From your first idea to the final pixel, we create experiences
           designed to make your brand memorable.
         </p>
+
       </div>
 
 
       <div class="services-grid">
 
         <article class="service-card">
+
           <span class="service-number">01</span>
+
           <div class="service-icon">✦</div>
+
           <h3>Brand Identity</h3>
+
           <p>
             Logos, visual systems, brand guidelines and identities
             that make your business instantly recognizable.
           </p>
-          <a href="#contact">Explore →</a>
+
+          <a href="#contact">
+            Explore →
+          </a>
+
         </article>
 
 
         <article class="service-card featured">
+
           <span class="service-number">02</span>
+
           <div class="service-icon">◈</div>
+
           <h3>Graphic Design</h3>
+
           <p>
             Scroll-stopping social media designs, campaigns,
             marketing graphics and premium visual content.
           </p>
-          <a href="#contact">Explore →</a>
+
+          <a href="#contact">
+            Explore →
+          </a>
+
         </article>
 
 
         <article class="service-card">
+
           <span class="service-number">03</span>
+
           <div class="service-icon">⌁</div>
+
           <h3>Web Design</h3>
+
           <p>
             Modern responsive websites and landing pages designed
             to turn visitors into customers.
           </p>
-          <a href="#contact">Explore →</a>
+
+          <a href="#contact">
+            Explore →
+          </a>
+
         </article>
 
       </div>
@@ -182,58 +567,763 @@ DOCTYPE html>
     </section>
 
 
-    <!-- WORK -->
+    <!-- =========================================
+         PORTFOLIO
+    ========================================== -->
+
     <section class="section work-section" id="work">
 
       <div class="section-heading">
+
         <div>
+
           <span class="eyebrow">SELECTED WORK</span>
-          <h2>Ideas that look<br><em>as good as they work.</em></h2>
+
+          <h2>
+            Work that shows<br>
+            <em>what we can create.</em>
+          </h2>
+
         </div>
+
+        <p class="portfolio-intro">
+          Explore selected web, graphic design and brand identity projects.
+          Some projects are concept/demo work created to demonstrate
+          creative direction and design capability.
+        </p>
+
       </div>
 
 
-      <div class="work-grid">
+      <!-- =====================================
+           WEB DESIGN
+      ====================================== -->
 
-        <div class="project project-large">
-          <div class="project-art art-one">
-            <span>GM</span>
+      <div class="portfolio-category">
+
+        <div class="portfolio-category-head">
+
+          <div>
+
+            <span class="portfolio-label">
+              01 — Web Design
+            </span>
+
+            <h3>
+              Digital experiences
+            </h3>
+
           </div>
-          <div class="project-info">
-            <div>
-              <h3>Brand Identity</h3>
-              <p>Visual Identity / Strategy</p>
-            </div>
-            <span>↗</span>
-          </div>
+
+          <p>
+            Modern websites built around strong visual direction,
+            clear structure and memorable user experiences.
+          </p>
+
         </div>
 
 
-        <div class="project">
-          <div class="project-art art-two">
-            <span>CREATE</span>
+        <div class="portfolio-grid">
+
+
+          <!-- NEXORA -->
+
+          <article class="portfolio-card">
+
+            <a
+              href="https://nexora-eight-tau.vercel.app/"
+              target="_blank"
+              rel="noopener"
+              style="text-decoration:none;color:inherit;"
+            >
+
+              <div class="portfolio-image">
+
+                <div
+                  style="
+                    width:100%;
+                    height:100%;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    background:
+                      radial-gradient(circle at 70% 30%, rgba(184,255,61,.15), transparent 35%),
+                      linear-gradient(135deg,#08090b,#171b20);
+                  "
+                >
+
+                  <div
+                    style="
+                      text-align:center;
+                      padding:30px;
+                    "
+                  >
+
+                    <div
+                      style="
+                        font-family:'Space Grotesk',sans-serif;
+                        font-size:clamp(38px,6vw,72px);
+                        font-weight:700;
+                        letter-spacing:-.06em;
+                        color:#f5f5f2;
+                      "
+                    >
+                      NEXORA
+                    </div>
+
+                    <div
+                      style="
+                        margin-top:10px;
+                        color:#b8ff3d;
+                        font-size:12px;
+                        letter-spacing:.16em;
+                        text-transform:uppercase;
+                      "
+                    >
+                      AI Creative Studio
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="portfolio-overlay">
+
+                  <span class="demo-badge">
+                    Concept / Demo
+                  </span>
+
+                  <span class="portfolio-arrow">
+                    ↗
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="portfolio-info">
+
+                <h4>
+                  NEXORA — AI Creative Studio
+                </h4>
+
+                <p>
+                  Premium dark digital experience with modern
+                  branding, services, work showcase and CTA.
+                </p>
+
+                <span class="portfolio-link">
+                  View Website →
+                </span>
+
+              </div>
+
+            </a>
+
+          </article>
+
+
+          <!-- URBAN BITES -->
+
+          <article class="portfolio-card">
+
+            <a
+              href="https://urban-bites-psi.vercel.app/"
+              target="_blank"
+              rel="noopener"
+              style="text-decoration:none;color:inherit;"
+            >
+
+              <div class="portfolio-image">
+
+                <div
+                  style="
+                    width:100%;
+                    height:100%;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    padding:30px;
+                    text-align:center;
+                    background:
+                      radial-gradient(circle at 50% 20%, rgba(255,175,80,.18), transparent 38%),
+                      linear-gradient(135deg,#17100b,#090a0c);
+                  "
+                >
+
+                  <div
+                    style="
+                      font-size:12px;
+                      letter-spacing:.18em;
+                      text-transform:uppercase;
+                      color:#b9b9b4;
+                      margin-bottom:12px;
+                    "
+                  >
+                    Modern Casual Kitchen
+                  </div>
+
+                  <div
+                    style="
+                      font-family:'Space Grotesk',sans-serif;
+                      font-size:clamp(35px,5vw,64px);
+                      line-height:1;
+                      font-weight:700;
+                      color:#f5f5f2;
+                      letter-spacing:-.06em;
+                    "
+                  >
+                    URBAN<br>BITES
+                  </div>
+
+                  <div
+                    style="
+                      margin-top:15px;
+                      font-size:13px;
+                      color:#aaa;
+                    "
+                  >
+                    New York
+                  </div>
+
+                </div>
+
+
+                <div class="portfolio-overlay">
+
+                  <span class="demo-badge">
+                    Concept / Demo
+                  </span>
+
+                  <span class="portfolio-arrow">
+                    ↗
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="portfolio-info">
+
+                <h4>
+                  Urban Bites — Restaurant Website
+                </h4>
+
+                <p>
+                  Complete restaurant website with menu,
+                  story, gallery, contact and ordering experience.
+                </p>
+
+                <span class="portfolio-link">
+                  View Website →
+                </span>
+
+              </div>
+
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================
+           GRAPHIC DESIGN
+      ====================================== -->
+
+      <div class="portfolio-category">
+
+        <div class="portfolio-category-head">
+
+          <div>
+
+            <span class="portfolio-label">
+              02 — Graphic Design
+            </span>
+
+            <h3>
+              Visuals that demand attention.
+            </h3>
+
           </div>
-          <div class="project-info">
-            <div>
-              <h3>Social Campaign</h3>
-              <p>Creative Direction</p>
-            </div>
-            <span>↗</span>
-          </div>
+
+          <p>
+            Social media creatives, promotional graphics,
+            posters and marketing visuals designed to communicate fast.
+          </p>
+
         </div>
 
 
-        <div class="project">
-          <div class="project-art art-three">
-            <span>WEB</span>
-          </div>
-          <div class="project-info">
-            <div>
-              <h3>Digital Experience</h3>
-              <p>Web Design / UI</p>
+        <div class="portfolio-grid three">
+
+
+          <!-- DESIGN 01 -->
+
+          <article class="portfolio-card">
+
+            <div class="portfolio-image">
+
+              <img
+                src="assets/portfolio/branding.png"
+                alt="Branding graphic design project"
+                loading="lazy"
+              >
+
+              <div class="portfolio-overlay">
+
+                <span class="demo-badge">
+                  Graphic Design
+                </span>
+
+                <span class="portfolio-arrow">
+                  01
+                </span>
+
+              </div>
+
             </div>
-            <span>↗</span>
+
+            <div class="portfolio-info">
+
+              <h4>
+                Brand Promotion
+              </h4>
+
+              <p>
+                Premium promotional visual created
+                for a branding-focused campaign.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- DESIGN 02 -->
+
+          <article class="portfolio-card">
+
+            <div class="portfolio-image">
+
+              <img
+                src="assets/portfolio/burger.png"
+                alt="Burger promotional graphic design"
+                loading="lazy"
+              >
+
+              <div class="portfolio-overlay">
+
+                <span class="demo-badge">
+                  Graphic Design
+                </span>
+
+                <span class="portfolio-arrow">
+                  02
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="portfolio-info">
+
+              <h4>
+                Burger Campaign
+              </h4>
+
+              <p>
+                Food promotional poster focused on
+                bold typography and product presentation.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- DESIGN 03 -->
+
+          <article class="portfolio-card">
+
+            <div class="portfolio-image">
+
+              <img
+                src="assets/portfolio/bringing-ideas.png"
+                alt="Bringing Ideas to Life graphic design"
+                loading="lazy"
+              >
+
+              <div class="portfolio-overlay">
+
+                <span class="demo-badge">
+                  Graphic Design
+                </span>
+
+                <span class="portfolio-arrow">
+                  03
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="portfolio-info">
+
+              <h4>
+                Bringing Ideas to Life
+              </h4>
+
+              <p>
+                Creative brand-promotion composition
+                combining mockup and visual storytelling.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- DESIGN 04 -->
+
+          <article class="portfolio-card">
+
+            <div class="portfolio-image">
+
+              <img
+                src="assets/portfolio/never-alone.png"
+                alt="Never Alone creative poster"
+                loading="lazy"
+              >
+
+              <div class="portfolio-overlay">
+
+                <span class="demo-badge">
+                  Graphic Design
+                </span>
+
+                <span class="portfolio-arrow">
+                  04
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="portfolio-info">
+
+              <h4>
+                Never Alone
+              </h4>
+
+              <p>
+                Conceptual poster combining image manipulation,
+                composition and emotional visual direction.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- DESIGN 05 -->
+
+          <article class="portfolio-card">
+
+            <div class="portfolio-image">
+
+              <img
+                src="assets/portfolio/growth.png"
+                alt="Growth doesn't wait for luck graphic"
+                loading="lazy"
+              >
+
+              <div class="portfolio-overlay">
+
+                <span class="demo-badge">
+                  Graphic Design
+                </span>
+
+                <span class="portfolio-arrow">
+                  05
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="portfolio-info">
+
+              <h4>
+                Growth Doesn't Wait
+              </h4>
+
+              <p>
+                Promotional graphic designed around
+                business growth and creative services.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================
+           BRAND IDENTITY
+      ====================================== -->
+
+      <div class="portfolio-category">
+
+        <div class="portfolio-category-head">
+
+          <div>
+
+            <span class="portfolio-label">
+              03 — Brand Identity
+            </span>
+
+            <h3>
+              A brand system, not just a logo.
+            </h3>
+
           </div>
+
+          <p>
+            SHAX is presented as a complete visual identity direction,
+            with logo, color system, typography and brand applications.
+          </p>
+
+        </div>
+
+
+        <div class="portfolio-grid three">
+
+
+          <!-- SHAX LOGO -->
+
+          <article class="portfolio-card brand-card">
+
+            <div class="brand-visual">
+
+              <div class="brand-logo-box">
+
+                <img
+                  src="assets/portfolio/shax-logo.png"
+                  alt="SHAX logo"
+                  loading="lazy"
+                >
+
+              </div>
+
+              <div class="brand-word">
+                SHAX <span>GRAPHICS</span>
+              </div>
+
+            </div>
+
+            <div class="portfolio-info">
+
+              <h4>
+                SHAX — Core Identity
+              </h4>
+
+              <p>
+                Logo direction and core visual identity
+                for a modern creative design brand.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- SHAX VISUAL SYSTEM -->
+
+          <article class="portfolio-card brand-card">
+
+            <div class="brand-system">
+
+              <div class="system-title">
+                SHAX<br>
+                <span style="color:#0099ff;">
+                  VISUAL SYSTEM
+                </span>
+              </div>
+
+              <div class="system-row">
+
+                <div class="system-color system-blue">
+                  #0099FF
+                </div>
+
+                <div class="system-color system-dark">
+                  #08090B
+                </div>
+
+              </div>
+
+              <div class="system-row">
+
+                <div class="system-color system-gray">
+                  #6F737C
+                </div>
+
+                <div class="system-color system-white">
+                  #F5F5F2
+                </div>
+
+              </div>
+
+              <div class="system-type">
+                Space Grotesk / DM Sans
+              </div>
+
+            </div>
+
+            <div class="portfolio-info">
+
+              <h4>
+                Visual System
+              </h4>
+
+              <p>
+                Supporting color palette and typography
+                direction created around the SHAX identity.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- SHAX BRAND KIT -->
+
+          <article class="portfolio-card brand-card">
+
+            <div
+              class="brand-visual"
+              style="
+                justify-content:flex-start;
+                padding:30px;
+              "
+            >
+
+              <div>
+
+                <div
+                  style="
+                    font-family:'Space Grotesk',sans-serif;
+                    font-size:13px;
+                    letter-spacing:.16em;
+                    color:#0099ff;
+                    text-transform:uppercase;
+                    margin-bottom:15px;
+                  "
+                >
+                  Brand Kit
+                </div>
+
+                <div
+                  style="
+                    font-family:'Space Grotesk',sans-serif;
+                    font-size:42px;
+                    font-weight:700;
+                    line-height:.95;
+                    letter-spacing:-.05em;
+                  "
+                >
+                  SHAX
+                </div>
+
+                <div
+                  style="
+                    margin-top:10px;
+                    color:#92959e;
+                    font-size:13px;
+                  "
+                >
+                  GRAPHICS DESIGNER
+                </div>
+
+                <div
+                  style="
+                    margin-top:28px;
+                    display:flex;
+                    gap:8px;
+                  "
+                >
+
+                  <span
+                    style="
+                      width:32px;
+                      height:32px;
+                      border-radius:8px;
+                      background:#0099ff;
+                      display:block;
+                    "
+                  ></span>
+
+                  <span
+                    style="
+                      width:32px;
+                      height:32px;
+                      border-radius:8px;
+                      background:#0066ff;
+                      display:block;
+                    "
+                  ></span>
+
+                  <span
+                    style="
+                      width:32px;
+                      height:32px;
+                      border-radius:8px;
+                      background:#6f737c;
+                      display:block;
+                    "
+                  ></span>
+
+                  <span
+                    style="
+                      width:32px;
+                      height:32px;
+                      border-radius:8px;
+                      background:#f5f5f2;
+                      display:block;
+                    "
+                  ></span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="portfolio-info">
+
+              <h4>
+                Brand Application Kit
+              </h4>
+
+              <p>
+                Conceptual brand applications developed
+                to show how the SHAX identity can extend beyond the logo.
+              </p>
+
+            </div>
+
+          </article>
+
         </div>
 
       </div>
@@ -241,204 +1331,445 @@ DOCTYPE html>
     </section>
 
 
-    <!-- PRICING -->
+    <!-- =========================================
+         PRICING
+    ========================================== -->
+
     <section class="section pricing-section" id="pricing">
 
       <div class="section-heading centered">
-        <span class="eyebrow">SIMPLE PRICING</span>
-        <h2>Choose your<br><em>growth plan.</em></h2>
+
+        <span class="eyebrow">
+          SIMPLE PRICING
+        </span>
+
+        <h2>
+          Choose your<br>
+          <em>growth plan.</em>
+        </h2>
+
       </div>
 
 
       <div class="pricing-grid">
 
+
+        <!-- STARTER -->
+
         <article class="price-card">
-          <p class="plan">STARTER</p>
-          <h3>$49</h3>
-          <span>Perfect for getting started.</span>
+
+          <p class="plan">
+            STARTER
+          </p>
+
+          <h3>
+            $49
+          </h3>
+
+          <span>
+            Perfect for getting started.
+          </span>
 
           <ul>
-            <li>✓ 5 Social Media Designs</li>
-            <li>✓ 1 Revision</li>
-            <li>✓ High Resolution Files</li>
-            <li>✓ Fast Delivery</li>
+
+            <li>
+              ✓ 5 Social Media Designs
+            </li>
+
+            <li>
+              ✓ 1 Revision
+            </li>
+
+            <li>
+              ✓ High Resolution Files
+            </li>
+
+            <li>
+              ✓ Fast Delivery
+            </li>
+
           </ul>
 
-          <a href="#contact" class="price-btn">Get Started →</a>
+          <a
+            href="#contact"
+            class="price-btn"
+          >
+            Get Started →
+          </a>
+
         </article>
 
+
+        <!-- GROWTH -->
 
         <article class="price-card popular">
-          <div class="popular-label">MOST POPULAR</div>
 
-          <p class="plan">GROWTH</p>
-          <h3>$99</h3>
-          <span>For brands ready to grow.</span>
+          <div class="popular-label">
+            MOST POPULAR
+          </div>
+
+          <p class="plan">
+            GROWTH
+          </p>
+
+          <h3>
+            $99
+          </h3>
+
+          <span>
+            For brands ready to grow.
+          </span>
 
           <ul>
-            <li>✓ 12 Social Media Designs</li>
-            <li>✓ Brand Visual System</li>
-            <li>✓ 3 Revisions</li>
-            <li>✓ Priority Support</li>
+
+            <li>
+              ✓ 12 Social Media Designs
+            </li>
+
+            <li>
+              ✓ Brand Visual System
+            </li>
+
+            <li>
+              ✓ 3 Revisions
+            </li>
+
+            <li>
+              ✓ Priority Support
+            </li>
+
           </ul>
 
-          <a href="#contact" class="price-btn">Get Started →</a>
+          <a
+            href="#contact"
+            class="price-btn"
+          >
+            Get Started →
+          </a>
+
         </article>
 
 
+        <!-- PREMIUM -->
+
         <article class="price-card">
-          <p class="plan">PREMIUM</p>
-          <h3>$199</h3>
-          <span>Complete brand experience.</span>
+
+          <p class="plan">
+            PREMIUM
+          </p>
+
+          <h3>
+            $199
+          </h3>
+
+          <span>
+            Complete brand experience.
+          </span>
 
           <ul>
-            <li>✓ Complete Brand Identity</li>
-            <li>✓ Professional Website</li>
-            <li>✓ Unlimited Revisions</li>
-            <li>✓ Dedicated Support</li>
+
+            <li>
+              ✓ Complete Brand Identity
+            </li>
+
+            <li>
+              ✓ Professional Website
+            </li>
+
+            <li>
+              ✓ Unlimited Revisions
+            </li>
+
+            <li>
+              ✓ Dedicated Support
+            </li>
+
           </ul>
 
-          <a href="#contact" class="price-btn">Get Started →</a>
+          <a
+            href="#contact"
+            class="price-btn"
+          >
+            Get Started →
+          </a>
+
         </article>
 
       </div>
 
     </section>
 
-<!-- CTA / CONTACT -->
-<section class="cta" id="contact">
 
-  <div class="cta-inner">
+    <!-- =========================================
+         CONTACT / CTA
+    ========================================== -->
 
-    <span class="eyebrow">HAVE A PROJECT?</span>
+    <section class="cta" id="contact">
 
-    <h2>
-      Let's create something<br>
-      <em>remarkable.</em>
-    </h2>
+      <div class="cta-inner">
 
-    <p>
-      Tell us about your project and our team will get back to you.
-    </p>
+        <span class="eyebrow">
+          HAVE A PROJECT?
+        </span>
+
+        <h2>
+          Let's create something<br>
+          <em>remarkable.</em>
+        </h2>
+
+        <p>
+          Tell us about your project and our team will get back to you.
+        </p>
 
 
-    <!-- CONTACT FORM -->
-    <form id="contactForm" class="contact-form">
+        <!-- CONTACT FORM -->
 
-      <div class="form-row">
+        <form
+          id="contactForm"
+          class="contact-form"
+        >
 
-        <div class="form-group">
-          <label for="name">Your Name *</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Ahmed Shah"
-            required
+          <div class="form-row">
+
+
+            <div class="form-group">
+
+              <label for="name">
+                Your Name *
+              </label>
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Ahmed Shah"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="email">
+                Email
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-row">
+
+
+            <div class="form-group">
+
+              <label for="phone">
+                WhatsApp / Phone
+              </label>
+
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+92 300 1234567"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="service">
+                What do you need?
+              </label>
+
+              <select
+                id="service"
+                name="service"
+              >
+
+                <option value="">
+                  Select a service
+                </option>
+
+                <option value="Brand Identity">
+                  Brand Identity
+                </option>
+
+                <option value="Graphic Design">
+                  Graphic Design
+                </option>
+
+                <option value="Web Design">
+                  Web Design
+                </option>
+
+                <option value="Social Media Design">
+                  Social Media Design
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="message">
+              Tell us about your project *
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Tell us what you need..."
+              required
+            ></textarea>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="form-submit"
           >
+
+            Send Project Request
+
+            <span>
+              ↗
+            </span>
+
+          </button>
+
+
+          <p
+            id="formMessage"
+            class="form-message"
+          ></p>
+
+        </form>
+
+
+        <!-- DIRECT CONTACT -->
+
+        <div class="contact-buttons">
+
+
+          <a
+            href="https://wa.me/923393125143"
+            target="_blank"
+            rel="noopener"
+            class="btn primary"
+          >
+            WhatsApp Us ↗
+          </a>
+
+
+          <a
+            href="mailto:growmatemgt@gmail.com"
+            class="btn secondary"
+          >
+            Send Email
+          </a>
+
+
+          <a
+            href="https://www.instagram.com/gmdesigns2026/?hl=en"
+            target="_blank"
+            rel="noopener"
+            class="btn secondary"
+          >
+            Instagram
+          </a>
+
         </div>
 
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="you@example.com"
-          >
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer
+    style="
+      padding:35px 20px;
+      border-top:1px solid rgba(255,255,255,.07);
+      background:#08090b;
+    "
+  >
+
+    <div
+      style="
+        max-width:1200px;
+        margin:auto;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:20px;
+        flex-wrap:wrap;
+      "
+    >
+
+      <div>
+
+        <div
+          style="
+            font-family:'Space Grotesk',sans-serif;
+            font-size:20px;
+            font-weight:700;
+          "
+        >
+          GROW<span style="color:#b8ff3d;">MATE</span>
+        </div>
+
+        <div
+          style="
+            margin-top:7px;
+            color:#777b84;
+            font-size:12px;
+          "
+        >
+          Creative Digital Studio
         </div>
 
       </div>
 
 
-      <div class="form-row">
-
-        <div class="form-group">
-          <label for="phone">WhatsApp / Phone</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="+92 300 1234567"
-          >
-        </div>
-
-        <div class="form-group">
-          <label for="service">What do you need?</label>
-
-          <select id="service" name="service">
-
-            <option value="">Select a service</option>
-            <option value="Brand Identity">Brand Identity</option>
-            <option value="Graphic Design">Graphic Design</option>
-            <option value="Web Design">Web Design</option>
-            <option value="Social Media Design">Social Media Design</option>
-            <option value="Other">Other</option>
-
-          </select>
-
-        </div>
-
+      <div
+        style="
+          color:#777b84;
+          font-size:12px;
+        "
+      >
+        © 2026 Grow Mate. All rights reserved.
       </div>
-
-
-      <div class="form-group">
-
-        <label for="message">Tell us about your project *</label>
-
-        <textarea
-          id="message"
-          name="message"
-          rows="6"
-          placeholder="Tell us what you need..."
-          required
-        ></textarea>
-
-      </div>
-
-
-      <button type="submit" class="form-submit">
-        Send Project Request
-        <span>↗</span>
-      </button>
-
-      <p id="formMessage" class="form-message"></p>
-
-    </form>
-
-
-    <!-- DIRECT CONTACT -->
-    <div class="contact-buttons">
-
-      <a
-        href="https://wa.me/923393125143"
-        target="_blank"
-        class="btn primary"
-      >
-        WhatsApp Us ↗
-      </a>
-
-      <a
-        href="mailto:growmatemgt@gmail.com"
-        class="btn secondary"
-      >
-        Send Email
-      </a>
-
-      <a
-        href="https://www.instagram.com/gmdesigns2026/?hl=en"
-        target="_blank"
-        class="btn secondary"
-      >
-        Instagram
-      </a>
 
     </div>
 
-  </div>
+  </footer>
 
-</section>
-<script src="script.js"></script>
 
 </body>
 </html>
